@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!-- Ice Blocks -->
+  <ThingDef ParentName="StoneBlocksBase">
+    <defName>IceSheet_Resource_IceBlocks</defName>
+    <label>ice blocks</label>
+    <description>Water which has been frozen to create Ice. Careful as ice tends to melt at above 32°F</description>
+	
+    <useHitPoints>true</useHitPoints><!-- Override base-->
+    <graphicData>
+      <color>(230,230,230)</color>
+    </graphicData>
+    <soundInteract>Stone_Drop</soundInteract>
+    <soundDrop>Stone_Drop</soundDrop>
+    <statBases>
+      <MaxHitPoints>1.5</MaxHitPoints>
+      <MarketValue>0.25</MarketValue>
+      <DeteriorationRate>15</DeteriorationRate>
+      <Mass>1.35</Mass>
+    </statBases>
+    <thingCategories>
+      <li>ResourcesRaw</li>
+    </thingCategories>
+    <stuffProps>
+      <stuffAdjective>ice</stuffAdjective>
+      <color>(230,230,230)</color>
+      <commonality>0.01</commonality>
+      <soundImpactStuff>BulletImpact_Ground</soundImpactStuff>
+      <soundMeleeHitSharp>MeleeHit_Stone</soundMeleeHitSharp>
+      <soundMeleeHitBlunt>MeleeHit_Stone</soundMeleeHitBlunt>
+      <statOffsets>
+        <Beauty>2</Beauty>
+      </statOffsets>
+      <statFactors>
+        <MaxHitPoints>20</MaxHitPoints>
+        <Flammability>0</Flammability>
+        <Beauty>1.5</Beauty>
+        <WorkToMake>1.5</WorkToMake>
+      </statFactors>
+    </stuffProps>
+	<tickerType>Rare</tickerType>		
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>0.2</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+      <li>
+        <compClass>CompMelter</compClass>
+      </li>
+    </comps>
+  </ThingDef>
+
+
+  <RecipeDef>
+    <defName>Make_IceBlocks</defName>
+    <label>make ice blocks</label>
+	
+	<jobString>Make Ice Blocks</jobString>
+	<workAmount>1600</workAmount>
+    <workSpeedStat>UnskilledLaborSpeed</workSpeedStat>
+	<effectWorking>CutStone</effectWorking>
+	<soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+	<targetCountAdjustment>20</targetCountAdjustment>
+	<recipeUsers>
+		<li>TableStonecutter</li>
+	</recipeUsers>
+    <products>
+      <IceSheet_Resource_IceBlocks>20</IceSheet_Resource_IceBlocks>
+    </products>
+  </RecipeDef>
+  
+</Defs>
